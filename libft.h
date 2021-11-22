@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sherbert <sherbert@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: sherbert <sherbert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 16:10:45 by sherbert          #+#    #+#             */
-/*   Updated: 2020/11/09 16:15:49 by sherbert         ###   ########.fr       */
+/*   Updated: 2021/11/08 18:22:16 by sherbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,38 @@
 # include <string.h>
 # include <sys/types.h>
 # include <sys/stat.h>
+# include <stdarg.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_flag
+{
+	int				width;
+	int				sign;
+	char			c;
+	int				dot;
+	int				len;
+	int				star;
+}					t_flag;
+
+void				ft_print_flags(t_flag flags, int len);
+int					ft_print_char(char c, t_flag flags);
+int					ft_print_str(char *s, t_flag flags);
+int					ft_print_unsign(unsigned int i, t_flag flags);
+int					ft_print_hex(unsigned int i, t_flag flags, char c);
+int					ft_print_point(size_t i, t_flag flags);
+int					ft_print_nbr(int i, t_flag flags);
+void				ft_hex_format(size_t i, char c);
+int					ft_hex_len(unsigned int i);
+t_flag				ft_flags_std(const char *str);
+t_flag				ft_stars(int i, t_flag flags);
+int					ft_printf(const char *str, ...);
+char				*ft_utoa(unsigned int n);
+int					ft_point_len(size_t i);
 
 int					ft_atoi(const char *str);
 int					ft_isascii(int c);
@@ -67,15 +93,22 @@ void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void*));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void*),
-								void (*del)(void*));
+						void (*del)(void*));
+t_flag				flags_init(t_flag flags, const char *s);
+const char			*s_init_one(const char *s);
+const char			*s_init_two(const char *s);
 
-void				save_free(char **str);
 char				*ft_strdup_gnl(char *s1, int *err);
 char				*ft_strjoin_gnl(char *s1, char *s2, int *err);
 char				*ft_strcpy(char *dest, char *src);
 int					get_next_line(int fd, char **line);
 
+void				save_free(char **str);
+
+void				*ft_calloc_int(size_t nmemb);
+void				ft_bzero_int(void *s, size_t len);
+
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 1
 # endif
 #endif

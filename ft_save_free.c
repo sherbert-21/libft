@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_save_free.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sherbert <sherbert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 16:50:05 by sherbert          #+#    #+#             */
-/*   Updated: 2021/10/21 20:10:37 by sherbert         ###   ########.fr       */
+/*   Created: 2021/10/17 19:10:27 by sherbert          #+#    #+#             */
+/*   Updated: 2021/10/22 09:19:04 by sherbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	save_free(char **str)
 {
-	size_t	i;
-	size_t	lensrc;
-
-	i = 0;
-	lensrc = ft_strlen(src);
-	if (size == 0)
-		return (lensrc);
-	while (src[i] != '\0' && i < size - 1)
+	if (str && *str)
 	{
-		dest[i] = src[i];
-		i++;
+		free(*str);
+		*str = NULL;
 	}
-	dest[i] = '\0';
-	return (lensrc);
+}
+
+void	save_free_int(int **str)
+{
+	if (str && *str)
+	{
+		free(*str);
+		*str = NULL;
+	}
 }

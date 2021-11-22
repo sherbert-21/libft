@@ -6,13 +6,13 @@
 #    By: sherbert <sherbert@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/07 19:44:28 by sherbert          #+#    #+#              #
-#    Updated: 2020/10/27 16:15:29 by sherbert         ###   ########.fr        #
+#    Updated: 2021/11/04 16:46:59 by sherbert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-FLAGS	= -c -Wall -Werror -Wextra 
+FLAGS	=  -c -Wall -Werror -Wextra -fsanitize=address
 
 HEAD = libft.h
 
@@ -61,7 +61,20 @@ ft_lstclear.c \
 ft_lstiter.c \
 ft_lstmap.c \
 gnl.c \
-utils_gnl.c
+utils_gnl.c \
+ft_printf.c \
+ft_print_format.c \
+ft_print_int.c \
+ft_print_str.c \
+ft_print_unsign.c \
+ft_print_char.c \
+ft_print_hex.c \
+ft_print_point.c \
+ft_hex_format.c \
+ft_utoa.c \
+ft_save_free.c \
+ft_strcpy.c \
+ft_printf_add.c
 
 
 OBJ		= 	$(SRC:.c=.o)
@@ -70,12 +83,12 @@ OBJ		= 	$(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc  $(FLAGS) $(SRC) 
+	gcc  $(FLAGS) $(SRC)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 clean:
-	/bin/rm -f $(OBJ)
+	/bin/rm -f *.o
 
 fclean: clean
 	/bin/rm -f $(NAME)
