@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sherbert <sherbert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sherbert <sherbert@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 16:10:45 by sherbert          #+#    #+#             */
-/*   Updated: 2021/11/08 18:22:16 by sherbert         ###   ########.fr       */
+/*   Updated: 2021/12/09 06:14:11 by sherbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <stdarg.h>
+
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 typedef struct s_list
 {
@@ -104,9 +107,6 @@ char				*ft_strcpy(char *dest, char *src);
 int					get_next_line(int fd, char **line);
 
 void				save_free(char **str);
-
-void				*ft_calloc_int(size_t nmemb);
-void				ft_bzero_int(void *s, size_t len);
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
