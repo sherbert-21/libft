@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treat_char.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sherbert <sherbert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 16:19:03 by sherbert          #+#    #+#             */
+/*   Updated: 2022/02/08 16:19:07 by sherbert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int		ft_treat_char(char c, t_flags flags)
+int	ft_treat_char(char c, t_flags flags)
 {
-	int char_count;
+	int	char_count;
 
 	char_count = 0;
 	if (flags.minus == 1)

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treat_string.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sherbert <sherbert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 16:15:10 by sherbert          #+#    #+#             */
+/*   Updated: 2022/02/08 16:15:18 by sherbert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int		ft_put_part_int(char *str, t_flags flags)
+static int	ft_put_part_int(char *str, t_flags flags)
 {
-	int char_count;
+	int	char_count;
 
 	char_count = 0;
 	if (flags.dot >= 0)
@@ -17,9 +29,9 @@ static int		ft_put_part_int(char *str, t_flags flags)
 	return (char_count);
 }
 
-int				ft_treat_string(char *str, t_flags flags)
+int	ft_treat_string(char *str, t_flags flags)
 {
-	int char_count;
+	int	char_count;
 
 	char_count = 0;
 	if (!str)

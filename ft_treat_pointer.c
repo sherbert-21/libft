@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treat_pointer.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sherbert <sherbert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 16:15:30 by sherbert          #+#    #+#             */
+/*   Updated: 2022/02/08 16:15:50 by sherbert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_in_put_part_pointer(char *pointer, t_flags flags)
 {
-	int char_count;
+	int	char_count;
 
 	char_count = 0;
 	char_count += ft_putstrprec("0x", 2);
@@ -16,7 +28,7 @@ static int	ft_in_put_part_pointer(char *pointer, t_flags flags)
 	return (char_count);
 }
 
-int			ft_treat_pointer(unsigned long long ull, t_flags flags)
+int	ft_treat_pointer(unsigned long long ull, t_flags flags)
 {
 	char	*pointer;
 	int		char_count;

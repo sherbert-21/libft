@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sherbert <sherbert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 16:22:35 by sherbert          #+#    #+#             */
+/*   Updated: 2022/02/08 16:25:14 by sherbert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-t_flags		ft_init_flags(void)
+t_flags	ft_init_flags(void)
 {
-	t_flags		flags;
+	t_flags	flags;
 
 	flags.dot = -1;
 	flags.minus = 0;
@@ -13,12 +25,12 @@ t_flags		ft_init_flags(void)
 	return (flags);
 }
 
-int			ft_flag_parse(const char *save, int i, t_flags *flags, va_list args)
+int	ft_flag_parse(const char *save, int i, t_flags *flags, va_list args)
 {
 	while (save[i])
 	{
 		if (!ft_isdigit(save[i]) && !ft_is_in_type_list(save[i])
-		&& !ft_is_in_flags_list(save[i]))
+			&& !ft_is_in_flags_list(save[i]))
 			break ;
 		if (save[i] == '0' && flags->width == 0 && flags->minus == 0)
 			flags->zero = 1;
@@ -40,7 +52,7 @@ int			ft_flag_parse(const char *save, int i, t_flags *flags, va_list args)
 	return (i);
 }
 
-int			ft_treat_save(const char *save, va_list args)
+int	ft_treat_save(const char *save, va_list args)
 {
 	int			i;
 	t_flags		flags;
@@ -68,7 +80,7 @@ int			ft_treat_save(const char *save, va_list args)
 	return (char_count);
 }
 
-int			ft_printf(const char *input, ...)
+int	ft_printf(const char *input, ...)
 {
 	const char	*save;
 	va_list		args;

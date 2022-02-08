@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treat_uint.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sherbert <sherbert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 16:14:15 by sherbert          #+#    #+#             */
+/*   Updated: 2022/02/08 16:15:02 by sherbert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_in_put_part_uint(char *unsi_int, t_flags flags)
 {
-	int char_count;
+	int	char_count;
 
 	char_count = 0;
 	if (flags.dot >= 0)
@@ -13,7 +25,7 @@ static int	ft_in_put_part_uint(char *unsi_int, t_flags flags)
 
 static int	ft_put_part_uint(char *unsi_int, t_flags flags)
 {
-	int char_count;
+	int	char_count;
 
 	char_count = 0;
 	if (flags.minus == 1)
@@ -27,20 +39,20 @@ static int	ft_put_part_uint(char *unsi_int, t_flags flags)
 	}
 	else
 		char_count += ft_treat_width(flags.width,
-		ft_strlen(unsi_int), flags.zero);
+				ft_strlen(unsi_int), flags.zero);
 	if (flags.minus == 0)
 		char_count += ft_in_put_part_uint(unsi_int, flags);
 	return (char_count);
 }
 
-int			ft_treat_uint(unsigned int unsi, t_flags flags)
+int	ft_treat_uint(unsigned int unsi, t_flags flags)
 {
 	char	*unsi_int;
 	int		char_count;
 
 	char_count = 0;
 	unsi = (unsigned int)(4294967295 + 1
-				+ unsi);
+			+ unsi);
 	if (flags.dot == 0 && unsi == 0)
 	{
 		char_count += ft_treat_width(flags.width, 0, 0);

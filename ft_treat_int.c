@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treat_int.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sherbert <sherbert@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 16:16:13 by sherbert          #+#    #+#             */
+/*   Updated: 2022/02/08 16:16:25 by sherbert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_in_put_part_int(char *d_i, int save_i, t_flags flags)
 {
-	int char_count;
+	int	char_count;
 
 	char_count = 0;
 	if (save_i < 0 && flags.dot >= 0)
@@ -15,7 +27,7 @@ static int	ft_in_put_part_int(char *d_i, int save_i, t_flags flags)
 
 static int	ft_put_part_int(char *d_i, int save_i, t_flags flags)
 {
-	int char_count;
+	int	char_count;
 
 	char_count = 0;
 	if (flags.minus == 1)
@@ -34,7 +46,7 @@ static int	ft_put_part_int(char *d_i, int save_i, t_flags flags)
 	return (char_count);
 }
 
-int			ft_treat_int(int i, t_flags flags)
+int	ft_treat_int(int i, t_flags flags)
 {
 	char	*d_i;
 	int		save_i;
